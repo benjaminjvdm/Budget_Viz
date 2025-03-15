@@ -69,23 +69,24 @@ with st.sidebar:
         help="Multiplier for calculating expected income based on expenses"
     )
     
-    st.subheader("About the Author")
+st.sidebar.subheader("About the Author")
 
-    image_url = "https://avatars.githubusercontent.com/u/97449931?v=4"
-    try:
-        response = requests.get(image_url)
-        response.raise_for_status()  # Raise an exception for bad status codes (4xx or 5xx)
-        image = response.content
-        st.image(image, caption="Moon Benjee (문벤지)", use_container_width=True)
-    except requests.exceptions.RequestException as e:
-        st.error(f"Error loading image: {e}")  # Use st.error for better visibility
+image_url = "https://github.com/benjaminjvdm/streamlit-author/blob/main/Untitled%20design(1)(1).png?raw=true"
+try:
+    response = requests.get(image_url)
+    print(f"Image URL: {image_url}")
+    response.raise_for_status()
+    image = response.content
+    st.sidebar.image(image, caption="Moon Benjee (문벤지)")
+except requests.exceptions.RequestException as e:
+    st.sidebar.error(f"Error loading image: {e}")
 
-    st.markdown(
-        """
-        This app was Built with ❤️ by **Benjee(문벤지)**. 
-        You can connect with me on: [LinkedIn](https://www.linkedin.com/in/benjaminjvdm/)
-        """
-    )
+st.sidebar.markdown(
+    """
+    This app was Built with ❤️ by **Benjee(문벤지)**.
+    You can connect with me on: [LinkedIn](https://www.linkedin.com/in/benjaminjvdm/)
+    """
+)
 
 # Input sections
 col1, col2 = st.columns(2)
