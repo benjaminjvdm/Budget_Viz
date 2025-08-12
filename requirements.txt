@@ -1,3 +1,5 @@
 streamlit
 pandas
 plotly
+requests
+streamlit-local-storage
